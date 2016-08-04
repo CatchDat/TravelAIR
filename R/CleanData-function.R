@@ -1,7 +1,6 @@
+#' Clean up unrealistic values
+#'
 #' Remove entries with unrealistic speeds (optionally for the method in question) and update the next measurement accordingly (with duration/destination data)
-#'
-#'
-#'
 #'
 #' @param inputPath character; the path to the folder where the input *.csv files are located
 #' @param inputName character (optional); specify a string of characters the filenames which should be used all contain (e.g. "Base"); default is "WeekSel"
@@ -16,7 +15,7 @@
 #' @export
 #'
 
-cleanData<-function(inputPath="/Users/Nikee/Documents/Work/Projects/CatchTravelAI/Data/NewAgents/BasicData/", inputName="WeekSel", thresholdSpeed=240, methodSpecific=NA, unrealMerge=TRUE, removeMethodUnknown=FALSE, removeMethodNotFound=FALSE, outputPath=inputPath, outputName="Cleaned"){
+cleanData<-function(inputPath, inputName="WeekSel", thresholdSpeed=240, methodSpecific=NA, unrealMerge=TRUE, removeMethodUnknown=FALSE, removeMethodNotFound=FALSE, outputPath=inputPath, outputName="Cleaned"){
 
   # read in filename(s)
   fileNames<-list.files(inputPath)
