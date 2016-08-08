@@ -2,12 +2,10 @@
 % Please edit documentation in R/CleanData-function.R
 \name{cleanData}
 \alias{cleanData}
-\title{Remove entries with unrealistic speeds (optionally for the method in question) and update the next measurement accordingly (with duration/destination data)}
+\title{Clean up unrealistic values}
 \usage{
-
-  cleanData(inputPath = "/Users/Nikee/Documents/Work/Projects/CatchTravelAI/Data/NewAgents/BasicData/",
-  inputName = "WeekSel", thresholdSpeed = 240, methodSpecific = NA,
-  unrealMerge = TRUE, removeMethodUnknown = FALSE,
+cleanData(inputPath, inputName = "WeekSel", thresholdSpeed = 240,
+  methodSpecific = NA, unrealMerge = TRUE, removeMethodUnknown = FALSE,
   removeMethodNotFound = FALSE, outputPath = inputPath,
   outputName = "Cleaned")
 }
@@ -28,7 +26,7 @@
 
 \item{outputPath}{character (optional); the path to the folder to write the output csv files to, set to NA to not write output files; default is the inputPath}
 
-\item{outputName}{character (optional); if outputPath is not NA, will prefix the output filenames ("AgentID.csv") with this; default is "WeekSel", set to NA to just have the AgentIDs}
+\item{outputName}{character (optional); if outputPath is not NA, will prefix the output filenames ("AgentID.csv") with this; default is "Cleaned", set to NA to just have the AgentIDs}
 }
 \description{
 Remove entries with unrealistic speeds (optionally for the method in question) and update the next measurement accordingly (with duration/destination data)

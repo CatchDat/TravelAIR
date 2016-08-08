@@ -11,12 +11,12 @@
 #' @param minDate integer (optional); YYMMDD of minimum observation date to include; default is NA
 #' @param maxDate integer (optional); YYMMDD of maximum observation date to include; default (currently) is 160131, set to NA to exclude
 #' @param saveOutput boolean (optional); write out the data frame with the added columns; default is TRUE
-#' @param outputPath character (optional); the path to the folder where the updated json files should be saved if saveOutput is set to TRUE
+#' @param outputPath character (optional); the path to the folder where the updated json files should be saved if saveOutput is set to TRUE; default will create a subdirectory in the input directory called "BasicData"
 #'
 #' @export
 
-readData<-function(inputPath="", minDate=NA, maxDate=NA,
-                   saveOutput=TRUE, outputPath="/Users/Nikee/Documents/Work/Projects/CatchTravelAI/Data/NewAgents/BasicData/"){
+readData<-function(inputPath, minDate=NA, maxDate=NA,
+                   saveOutput=TRUE, outputPath=paste(inputPath,"BasicData/",sep="")){
   # read in filename(s)
   fileNames<-list.files(inputPath)
 

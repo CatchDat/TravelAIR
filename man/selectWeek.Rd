@@ -4,11 +4,9 @@
 \alias{selectWeek}
 \title{Select only agents with observations on each day of the week}
 \usage{
-
-  selectWeek(inputPath = "/Users/Nikee/Documents/Work/Projects/CatchTravelAI/Data/NewAgents/BasicData/",
-  weekdays = c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-  "Friday", "Saturday"), strictSelection = FALSE, minObsvsReq = NA,
-  outputPath = inputPath, outputName = "WeekSel")
+selectWeek(inputPath, weekdays = c("Sunday", "Monday", "Tuesday", "Wednesday",
+  "Thursday", "Friday", "Saturday"), strictSelection = FALSE,
+  minObsvsReq = NA, outputPath = inputPath, outputName = "WeekSel")
 }
 \arguments{
 \item{inputPath}{character; the path to the folder where the input *.csv files are located}

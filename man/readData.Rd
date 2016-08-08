@@ -4,10 +4,8 @@
 \alias{readData}
 \title{Read in the 'new' Catch! TravellAI geojson data (Aug '14 - Aug '15)}
 \usage{
-
-  readData(inputPath = "/Users/Nikee/Documents/Work/Projects/CatchTravelAI/Data/TravelAi_WeCycle_Aug14-Aug15/",
-  minDate = NA, maxDate = NA, saveOutput = TRUE,
-  outputPath = "/Users/Nikee/Documents/Work/Projects/CatchTravelAI/Data/NewAgents/BasicData/")
+readData(inputPath, minDate = NA, maxDate = NA, saveOutput = TRUE,
+  outputPath = paste(inputPath, "BasicData/", sep = ""))
 }
 \arguments{
 \item{inputPath}{character; the path to the folder where the json files are located}
@@ -18,12 +16,12 @@
 
 \item{saveOutput}{boolean (optional); write out the data frame with the added columns; default is TRUE}
 
-\item{outputPath}{character (optional); the path to the folder where the updated json files should be saved if saveOutput is set to TRUE}
+\item{outputPath}{character (optional); the path to the folder where the updated json files should be saved if saveOutput is set to TRUE; default will create a subdirectory in the input directory called "BasicData"}
 }
 \description{
-Adds individual x and y coordinate columns (for both 'from' and 'to' locations; the latter is calculated as the origin of the next observation, 
- since currently the origins and destinations are identical), day of the week, decimal time of day, duration, unique agent ID column, 
- geodesic and haversine distances between origin and destination locations (since the current distance column only has 0 values due to origin 
+Adds individual x and y coordinate columns (for both 'from' and 'to' locations; the latter is calculated as the origin of the next observation,
+ since currently the origins and destinations are identical), day of the week, decimal time of day, duration, unique agent ID column,
+ geodesic and haversine distances between origin and destination locations (since the current distance column only has 0 values due to origin
  and destination coordinates being the same), and speeds (in km/h) based on the calculated distances and durations.
 Removes all entries with duration = 0, since they seem to be duplicate entries.
 Optionally can be used to select only a specific date range.

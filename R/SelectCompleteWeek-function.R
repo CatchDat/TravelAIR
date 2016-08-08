@@ -12,7 +12,7 @@
 #'
 #' @export
 
-selectWeek<-function(inputPath="", weekdays=c("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"),
+selectWeek<-function(inputPath, weekdays=c("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"),
                      strictSelection=FALSE, minObsvsReq=NA, outputPath=inputPath, outputName="WeekSel"){
 
   # read in filename(s)

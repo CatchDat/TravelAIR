@@ -10,7 +10,7 @@
 #' @param removeMethodUnknown boolean (optional); remove entries where the method is "unknown"; default is FALSE
 #' @param removeMethodNotFound boolean (optional); remove entries where the method is "notfoundinindex"; default is FALSE
 #' @param outputPath character (optional); the path to the folder to write the output csv files to, set to NA to not write output files; default is the inputPath
-#' @param outputName character (optional); if outputPath is not NA, will prefix the output filenames ("AgentID.csv") with this; default is "WeekSel", set to NA to just have the AgentIDs
+#' @param outputName character (optional); if outputPath is not NA, will prefix the output filenames ("AgentID.csv") with this; default is "Cleaned", set to NA to just have the AgentIDs
 #'
 #' @export
 #'
