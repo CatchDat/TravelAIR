@@ -1,0 +1,42 @@
+---
+title: "Q4 meeting notes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reading and cleaning data
+
+Nikee has written an R package for working with the TAI data.
+
+This function for example, reads in the custom data format:
+
+```{r, eval=FALSE}
+readData<-function(inputPath, minObsDate="2014-01-01", maxObsDate="2016-10-01",
+                   saveOutput=TRUE, outputPath=inputPath,
+                   saveSummary=TRUE, summaryName="Aug14-16_Summary", summaryPath=inputPath)
+```
+
+## Analysis of the data
+
+
+- Distance to workplace estimated based on first instance when an agent is at a workplace
+- Estimated purpose of trip using time-of-day (midnight to 4 AM)
+- Created trip level table on commutes
+- Agent-level table summarising commute behaviour
+- Explored ways to define a 'typical commute' per agent. This includes:
+    - Mode: single or dual mode estimated
+    - Start time, end time
+    - Distance (route and Euclidean)
+    - Total number of commutes identified per agent (suggest below 5 - is not reliable)
+
+## Identification of aggregate patterns in commute behaviour
+
+- Based on input data, females commute on average 7.9 km to home and 5.1 to work (intermediate stops on the way home?)
+- For men the route distances values are 17.8 and 17.5 km, respectively
+- Estimated travel times but these do not seem reliable
+- Breakdown by age band
+
+
