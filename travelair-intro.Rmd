@@ -1,0 +1,147 @@
+---
+title: "CATCH Q4 Meeting notes"
+author: Robin Lovelace, University of Leeds
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Note: move to vignettes folder eventually
+```
+
+## Reading and cleaning data
+
+Nikée has written an R package, **TravelAIR**, for working with the TAI data.
+
+This function, for example, reads in the custom data format:
+
+```{r, eval=FALSE}
+readData <- function(inputPath, minObsDate="2014-01-01",
+                   maxObsDate="2016-10-01",
+                   saveOutput=TRUE, outputPath=inputPath,
+                   saveSummary=TRUE, summaryName="Aug14-16_Summary",
+                   summaryPath=inputPath)
+# example usage, 1 minute to procss to process 180 MB
+# system.time(readData(inputPath = "tai-private-data/")) 
+```
+
+
+
+
+## I/O results
+
+<div class="columns-2">
+
+**Original data**
+```
+[
+  {
+    "distance": 5757.0, 
+    "changed_method": null, 
+    "d": "190111", 
+    "deleted": null, 
+    "ts": 1547224631587, 
+    "method_desc": "Car", 
+    "duration": 312.0, 
+    "to_loc": [
+      -1.790163, 
+      55.30009
+    ], 
+    "from_loc": [
+      -1.831256, 
+      55.34619
+    ], 
+    "method": 15, 
+```
+
+**The processed data**
+
+```{r, message=FALSE}
+f = paste0("tai-private-data/",
+           "Base_Agent-1.csv")
+d = readr::read_csv(f) # 22999 rows (trips)
+head(d)
+```
+
+</div>
+
+## Cleaning the data
+
+Extensible function for cleaning the data:
+
+```{r, eval=FALSE}
+cleanData<-function(inputPath, inputName="Base",
+                    methodSpecific=c("Car", "Bicycle"),
+                    thresholdSpeed=c(rep(240,11),1200,240),
+                    unrealMerge=FALSE,
+                    removeMethodUnknown=FALSE,
+                    outputPath=inputPath, outputName="Cleaned"){ ... }
+
+```
+
+## Example of data cleaning
+
+```{r}
+a = read.csv("travelAIData/BasicData/Base_Agent-101.csv")
+ac = read.csv("travelAIData/BasicData/Cleaned_Agent-101.csv")
+nrow(a)
+nrow(ac)
+summary(a$speed)
+summary(ac$speed)
+```
+
+## Issue: international forrays
+
+```{r}
+plot(ac$to_locx, ac$to_locy) # viz issues
+```
+
+
+## Addition cleaning steps (prototype)
+
+```{r}
+a_bounds_x = quantile(ac$from_locx, probs = c(0.1, 0.9))
+a_bounds_y = quantile(ac$from_locy, probs = c(0.1, 0.9))
+sel_bb = ac$to_locx > a_bounds_x[1] & ac$to_locx < a_bounds_x[2]
+ac = ac[sel_bb,]
+plot(ac$to_locx, ac$to_locy)
+```
+
+## Visualisation
+
+```{r}
+library(leaflet.extras)
+leaflet() %>% addTiles() %>% addWebGLHeatmap(ac$to_locx, ac$to_locy, size = 10000, units = "m", alphaRange = 0.00001) 
+```
+
+## Analysis of the data
+
+- Distance to workplace estimated based on first instance when an agent is at a workplace
+- Estimated purpose of trip using time-of-day (midnight to 4 AM)
+- Created trip level table on commutes
+- Agent-level table summarising commute behaviour
+- Explored ways to define a 'typical commute' per agent. This includes:
+    - Mode: single or dual mode estimated
+    - Start time, end time
+    - Distance (route and Euclidean)
+    - Total number of commutes identified per agent (suggest below 5 - is not reliable)
+    
+## Identification of aggregate patterns in commute behaviour
+
+- Based on input data, females commute on average 7.9 km to home and 5.1 to work (intermediate stops on the way home?)
+- For men the route distances values are 17.8 and 17.5 km, respectively
+- Estimated travel times but these do not seem reliable
+- Breakdown by age band
+
+## Some results I | Main mode of commute by age band
+
+```{r, message=FALSE, warning=FALSE}
+knitr::kable(readr::read_csv("vignettes/results-age-mode.csv"))
+```
+
+## Some results II | Main mode of commute by age band
+
+```{r, message=FALSE, warning=FALSE}
+knitr::kable(readr::read_csv("vignettes/results-gender-mode.csv"))
+```

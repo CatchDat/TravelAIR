@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 tai-private-data
+rsconnect
+Base_Agent*
+travelAIData
+*.html
