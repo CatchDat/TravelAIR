@@ -1,0 +1,13 @@
+---
+title: "Friday 7th - Agenda"
+output: html_document
+---
+
+- Meet-up, set-up and coffee (09:00 - 10:00)
+- Update on data and descriptive analysis of latest results (10:00 - 11:00)
+- Demo and reproducible code on stop detection (11:00 - 13:00)
+
+Lunch (13:00 - 14:00)
+
+- Demo of microsim work (14:00 - 15:00)
+- 'Microhack' on Tyne and Wear data (15:00 - 17:00)
