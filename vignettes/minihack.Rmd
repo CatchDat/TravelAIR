@@ -4,6 +4,7 @@ output: html_document
 ---
 
 - Meet-up, set-up and coffee (09:00 - 10:00)
+- Agree date for next hangout (10:00)
 - Update on data and descriptive analysis of latest results (10:00 - 11:00)
 - Demo and reproducible code on stop detection (11:00 - 13:00)
 
