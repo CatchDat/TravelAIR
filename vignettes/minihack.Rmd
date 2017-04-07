@@ -4,7 +4,7 @@ output: html_document
 ---
 
 - Meet-up, set-up and coffee (09:00 - 10:00)
-- Agree date for next hangout (10:00) 
+- Agree date for next hangout (10:00)
 - Update on data and descriptive analysis of latest results (10:00 - 10:30)
 - Update from TravelAI: Samuli (10:30 - 11:00)
 - Demo and reproducible code on stop detection: Yang (11:00 - 12:00)
@@ -15,5 +15,23 @@ Lunch (13:00 - 14:00)
 - Demo of microsim work (14:00 - 15:00)
 - 'Microhack' on Tyne and Wear data (15:00 - 17:00)
 
+Actions:
 
-Here's the json-csv [code](https://github.com/CatchDat/TravelAIR/blob/master/vignettes/json-csv-convert.md).
+Send some example data
+Agree on the format that we’ll send to leeds
+
+Robin to co-ordinate with Leeds database team to resolve current issues:
+Parsing JSON
+Other internal problems (internet on VRE)
+
+Get tools to partners so that they can ground truth data
+
+Agree on how to access the data
+
+Map out a project plan with Xiaokai
+
+Send Yang as much ground truthed data as poss
+
+Pass GPS speed to data partners
+
+Give Josh long histories of individual's travel to see if it changes with weather
