@@ -91,6 +91,21 @@ summary(a$speed)
 summary(ac$speed)
 ```
 
+## (Pseudo) anonymisation
+
+```{r}
+# Brute force approach
+ac[c("to_locx", "to_locy")] <- ac[c("to_locx", "to_locy")] +
+  runif(n = nrow(ac) * 2, min = -0.01, max = 0.01)
+```
+
+- Also see **stplanr** function to 'top-and-tail' trips:
+
+```{r}
+args(stplanr::toptail)
+```
+
+
 ## Issue: international forrays
 
 ```{r}
@@ -110,7 +125,7 @@ plot(ac$to_locx, ac$to_locy)
 
 ## Visualisation
 
-```{r}
+```{r, message=FALSE}
 library(leaflet.extras)
 leaflet() %>% addTiles() %>% addWebGLHeatmap(ac$to_locx, ac$to_locy, size = 10000, units = "m", alphaRange = 0.00001) 
 ```

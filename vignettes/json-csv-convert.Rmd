@@ -1,0 +1,10 @@
+---
+output: github_document
+---
+
+```{r}
+tab = jsonlite::fromJSON("/home/robin/CatchDat/TravelAIR/travelAIData/convertedjson/0a913b60-fefa-4cce-8166-4b8db10cd7d6.json")
+tab = tidyr::unnest(tab)
+write.csv(apply(tab, 2, strtrim, 3)[1:3,])
+```
+
