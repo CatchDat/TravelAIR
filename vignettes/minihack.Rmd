@@ -14,3 +14,24 @@ Lunch (13:00 - 14:00)
 
 - Demo of microsim work (14:00 - 15:00)
 - 'Microhack' on Tyne and Wear data (15:00 - 17:00)
+
+Actions:
+
+Send some example data
+Agree on the format that we’ll send to leeds
+
+Robin to co-ordinate with Leeds database team to resolve current issues:
+Parsing JSON
+Other internal problems (internet on VRE)
+
+Get tools to partners so that they can ground truth data
+
+Agree on how to access the data
+
+Map out a project plan with Xiaokai
+
+Send Yang as much ground truthed data as poss
+
+Pass GPS speed to data partners
+
+Give Josh long histories of individual's travel to see if it changes with weather
